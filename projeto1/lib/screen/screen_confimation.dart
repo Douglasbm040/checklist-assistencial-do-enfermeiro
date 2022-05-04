@@ -19,7 +19,7 @@ class _ScreenConfirmationState extends State<ScreenConfirmation> {
 
   void _aminationtime() async {
     Timer(
-      Duration(seconds: 3),
+      Duration(seconds:3),
       () {
         _btnController.success();
         sleep(Duration(seconds:2));
@@ -51,7 +51,7 @@ class _ScreenConfirmationState extends State<ScreenConfirmation> {
                 new MaterialPageRoute(builder: (context) => ScreenMain())),
           ),
           appBar: AppBar(
-            title: Text("Confirmação !!"),
+            title: Text("Confirmação !"),
           ),
           body: AnimationLimiter(
             child: ListView.builder(
