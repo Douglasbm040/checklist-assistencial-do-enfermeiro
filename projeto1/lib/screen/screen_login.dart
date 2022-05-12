@@ -1,6 +1,6 @@
 //import 'dart:ffi';
 //ignore_for_file: prefer_const_constructors
-
+import '../database/date_local.dart';
 import 'package:flutter/material.dart';
 import './screen_main.dart';
 
@@ -21,6 +21,19 @@ class ScreenLogin extends StatefulWidget {
 
 class _ScreenLoginState extends State<ScreenLogin> {
   //! void _nextview(BuildContext context) {
+  TextEditingController usuario = TextEditingController();
+  TextEditingController senha = TextEditingController();
+  salvardb() {
+    DataBase.insert("banco", {
+      "id": senha.text,
+      "paciente": usuario.text,
+    });
+  }
+  checking()async{
+    final datalist = await DataBase.getdata("banco");
+    print(datalist);
+  }
+
   bool _showPassword = false;
   @override
   Widget build(BuildContext context) {
@@ -74,15 +87,14 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         SizedBox(
                           width: 400,
                           child: TextField(
+                            controller: usuario,
                             cursorColor: Colors.white,
                             style: TextStyle(color: Colors.white),
-                            
                             decoration: InputDecoration(
                                 contentPadding: EdgeInsets.all(8),
                                 labelStyle: TextStyle(color: Colors.white),
                                 labelText: "usuario",
                                 border: const OutlineInputBorder(
-                                  
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10)))),
                           ),
@@ -94,6 +106,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         SizedBox(
                           width: 400,
                           child: TextField(
+                            controller: senha,
                             cursorColor: Colors.white,
                             style: TextStyle(color: Colors.white),
                             obscureText: !this._showPassword,
@@ -104,7 +117,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10))),
                               labelText: "Digite a senha ",
-                              prefixIcon: const Icon(Icons.lock, color:Colors.white,),
+                              prefixIcon: const Icon(
+                                Icons.lock,
+                                color: Colors.white,
+                              ),
                               suffixIcon: IconButton(
                                   onPressed: () {
                                     setState(() => this._showPassword =
@@ -130,11 +146,15 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         height: 50,
                         child: ElevatedButton(
                             child: Text("ENTRAR"),
-                            onPressed: () => Navigator.push(
-                                  context,
-                                  new MaterialPageRoute(
-                                      builder: (context) => ScreenMain()),
-                                ))),
+                            onPressed: () {
+                              salvardb;
+                              checking;
+                              Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => ScreenMain()),
+                              );
+                            })),
                   ]),
             ),
           ),

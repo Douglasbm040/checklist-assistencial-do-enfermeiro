@@ -69,13 +69,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  flutter_staggered_animations:
-    dependency: "direct main"
-    description:
-      name: flutter_staggered_animations
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -116,20 +109,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-  rounded_loading_button:
-    dependency: "direct main"
+  qr:
+    dependency: transitive
     description:
-      name: rounded_loading_button
+      name: qr
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  rxdart:
-    dependency: transitive
+  qr_flutter:
+    dependency: "direct main"
     description:
-      name: rxdart
+      name: qr_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.27.3"
+    version: "4.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -142,20 +135,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
-  sqflite:
-    dependency: "direct main"
-    description:
-      name: sqflite
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.2+1"
-  sqflite_common:
-    dependency: transitive
-    description:
-      name: sqflite_common
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.1+1"
   stack_trace:
     dependency: transitive
     description:
@@ -177,13 +156,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
-  synchronized:
-    dependency: transitive
-    description:
-      name: synchronized
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.0+2"
   term_glyph:
     dependency: transitive
     description:
@@ -214,4 +186,4 @@ packages:
     version: "2.1.1"
 sdks:
   dart: ">=2.16.2 <3.0.0"
-  flutter: ">=1.10.0"
+  flutter: ">=1.16.0"

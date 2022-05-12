@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto1/screen/screen_sae.dart';
 import 'screen_sae.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+///import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 main() => runApp(ScreenMain());
 
@@ -81,16 +82,16 @@ class _ScreenMainState extends State<ScreenMain> {
                                       //Text("numero do leito : "),
                                       //Text("pendencias: "),
                                       //Text("exames: "),
-                                      
-                                      
+
                                       ElevatedButton(
-                                        child: Icon(Icons.list),
-                                        onPressed: () => Navigator.push(
-                                              context,
-                                              new MaterialPageRoute(
-                                                  builder: ((context) =>
-                                                      ScreenSAE())),
-                                    ))],
+                                          child: Icon(Icons.list),
+                                          onPressed: () => Navigator.push(
+                                                context,
+                                                new MaterialPageRoute(
+                                                    builder: ((context) =>
+                                                        ScreenSAE())),
+                                              ))
+                                    ],
                                   )),
                             )));
                   }),
@@ -133,7 +134,7 @@ class _ScreenMainState extends State<ScreenMain> {
               ),
             )),
             Tab(
-             child: AnimationLimiter(
+                child: AnimationLimiter(
               child: ListView.builder(
                   padding: EdgeInsets.all(wquery / 30),
                   physics: BouncingScrollPhysics(
@@ -165,14 +166,19 @@ class _ScreenMainState extends State<ScreenMain> {
                                           spreadRadius: 10)
                                     ],
                                   ),
-                                  child: ElevatedButton(
-                                      child: Icon(Icons.list),
-                                      onPressed: () => Navigator.push(
-                                            context,
-                                            new MaterialPageRoute(
-                                                builder: ((context) =>
-                                                    ScreenSAE())),
-                                          ))),
+                                  child: Column(
+                                    children: [
+                                      
+                                      ElevatedButton(
+                                          child: Icon(Icons.list),
+                                          onPressed: () => Navigator.push(
+                                                context,
+                                                new MaterialPageRoute(
+                                                    builder: ((context) =>
+                                                        ScreenSAE())),
+                                              ))
+                                    ],
+                                  )),
                             )));
                   }),
 
@@ -186,7 +192,6 @@ class _ScreenMainState extends State<ScreenMain> {
               //          ))
               //]),
             )),
-             
           ]),
         ),
       ),
