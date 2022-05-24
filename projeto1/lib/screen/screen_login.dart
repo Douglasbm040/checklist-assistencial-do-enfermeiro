@@ -1,6 +1,7 @@
 //import 'dart:ffi';
 //ignore_for_file: prefer_const_constructors
-import '../database/date_local.dart';
+import 'package:projeto1/repositories/repositorio.dart';
+import 'package:projeto1/database/date_local.dart';
 import 'package:flutter/material.dart';
 import './screen_main.dart';
 
@@ -23,16 +24,14 @@ class _ScreenLoginState extends State<ScreenLogin> {
   //! void _nextview(BuildContext context) {
   TextEditingController usuario = TextEditingController();
   TextEditingController senha = TextEditingController();
-  salvardb() {
-    DataBase.insert("banco", {
-      "id": senha.text,
-      "paciente": usuario.text,
-    });
-  }
-  checking()async{
-    final datalist = await DataBase.getdata("banco");
-    print(datalist);
-  }
+  
+  REPOSITOR rps = REPOSITOR();
+  
+
+
+
+
+  
 
   bool _showPassword = false;
   @override
@@ -147,13 +146,14 @@ class _ScreenLoginState extends State<ScreenLogin> {
                         child: ElevatedButton(
                             child: Text("ENTRAR"),
                             onPressed: () {
-                              salvardb;
-                              checking;
-                              Navigator.push(
-                                context,
-                                new MaterialPageRoute(
-                                    builder: (context) => ScreenMain()),
-                              );
+                             DataBase.insert("banco",{"paciente" : usuario.text });
+                              rps.loadpct();
+                              print(rps.nome);
+                             Navigator.push(
+                               context,
+                               new MaterialPageRoute(
+                                   builder: (context) => ScreenMain()),
+                             );
                             })),
                   ]),
             ),

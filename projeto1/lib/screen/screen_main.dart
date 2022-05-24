@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 //import 'dart:html';
 //import 'dart:js';
-
+import 'package:projeto1/database/date_local.dart';
+import 'package:projeto1/repositories/repositorio.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto1/screen/screen_sae.dart';
 import 'screen_sae.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+
 ///import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 main() => runApp(ScreenMain());
@@ -18,6 +20,26 @@ class ScreenMain extends StatefulWidget {
 }
 
 class _ScreenMainState extends State<ScreenMain> {
+  TextEditingController enfermo = TextEditingController();
+
+  REPOSITOR repor = REPOSITOR();
+  String? texto;
+  apagar() {
+    setState(() {
+      DataBase.delete_table("banco");
+      
+    });
+  }
+
+  atualizar() {
+    setState(() {
+      DataBase.insert("banco", {"paciente": enfermo.text});
+      repor.loadpct();
+      texto = repor.nome;
+      print(texto);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double wquery = MediaQuery.of(context).size.width;
@@ -74,24 +96,20 @@ class _ScreenMainState extends State<ScreenMain> {
                                           spreadRadius: 10)
                                     ],
                                   ),
-                                  child: Column(
-                                    children: [
-                                      //Text("nome do paciente: "),
-                                      //Text("nome do medico : "),
-                                      //Text("patologia: "),
-                                      //Text("numero do leito : "),
-                                      //Text("pendencias: "),
-                                      //Text("exames: "),
-
-                                      ElevatedButton(
-                                          child: Icon(Icons.list),
-                                          onPressed: () => Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                    builder: ((context) =>
-                                                        ScreenSAE())),
-                                              ))
-                                    ],
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: ElevatedButton(
+                                      child: Icon(
+                                        Icons.list,
+                                        size: 50,
+                                      ),
+                                      onPressed: () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ScreenSAE())),
+                                    ),
                                   )),
                             )));
                   }),
@@ -121,18 +139,47 @@ class _ScreenMainState extends State<ScreenMain> {
             //!),
             //),
             Tab(
+              child: SingleChildScrollView(
                 child: Container(
-              width: 10000,
-              height: 10000,
-              child: ElevatedButton(
-                child: Icon(
-                  Icons.qr_code_scanner_rounded,
-                  size: 150,
+                  width: double.maxFinite,
+                  height: double.maxFinite,
+                  child: Column(
+                    children: [
+                      Text(texto.toString()),
+                      //Text("nome do medico : "),
+                      //Text("patologia: "),
+                      //Text("numero do leito : "),
+                      //Text("pendencias: "),
+                      //Text("exames: "),
+
+                      TextField(
+                        controller: enfermo,
+                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(8),
+                            labelStyle: TextStyle(color: Colors.black),
+                            labelText: "paciente",
+                            border: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)))),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                              child: Icon(Icons.delete),
+                              onPressed: () => apagar()),
+                          ElevatedButton(
+                              child: Icon(Icons.list),
+                              onPressed: () => atualizar()),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ScreenSAE())),
               ),
-            )),
+            ),
             Tab(
                 child: AnimationLimiter(
               child: ListView.builder(
@@ -168,7 +215,6 @@ class _ScreenMainState extends State<ScreenMain> {
                                   ),
                                   child: Column(
                                     children: [
-                                      
                                       ElevatedButton(
                                           child: Icon(Icons.list),
                                           onPressed: () => Navigator.push(
