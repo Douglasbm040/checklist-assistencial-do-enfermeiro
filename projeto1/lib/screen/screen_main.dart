@@ -24,6 +24,17 @@ class ScreenMain extends StatefulWidget {
 }
 
 class _ScreenMainState extends State<ScreenMain> {
+
+  static const Map<String,List<String>> menu =  {
+    "classificao": ["INTENSIVO", "SEMI-INTENSIVO","INTERMEDIARIO", "MINIMOS"],
+    "precaucao" : ["PADRÃO, CONTATO , GOTICULAS, AEROSOL ,REVERSA"],
+    "dieta" : ["ORAL", "SNE" , "GTT"],
+    "diurese": ["ESPONTANEA", "SVD" , "CISTOSTOMIA"],
+};
+
+  
+
+
   TextEditingController enfermo = TextEditingController();
   REPOSITOR repor = REPOSITOR();
   String? texto;
@@ -169,6 +180,15 @@ class _ScreenMainState extends State<ScreenMain> {
                                   children: [
                                     Text(
                                         "Classificação de cuidados : [ ] intensivos [ ] semi- intesivos [ ] intermediarios [ ] minimos"),
+                                      DropdownButton(items: menu["classificao"], onChanged: (String? newvalue){
+                                        if (newvalue != null) {
+                                          setState(() {
+                                            
+                                          });
+                                          
+                                        }
+                                      }),
+                                  
                                   ],
                                 ),
                               
