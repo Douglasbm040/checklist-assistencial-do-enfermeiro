@@ -118,31 +118,7 @@ class _ScreenMainState extends State<ScreenMain> {
                                   )),
                             )));
                   }),
-
-              //(children: [
-              //  ElevatedButton(
-              //      child: Icon(Icons.list),
-              //      onPressed: () => Navigator.push(
-              //            context,
-              //            new MaterialPageRoute(
-              //                builder: ((context) => ScreenConfirmation())),
-              //          ))
-              //]),
             )),
-            //    child: ElevatedButton(
-            //  child: Icon(Icons.list),
-            //  onPressed: () => Navigator.pop(context),
-            //)
-            //!child: ListView(
-            //!  children: [
-            //!    Text("ola"),
-            //!    RaisedButton(
-            //!      child: Icon(Icons.list),
-            //!      onPressed: () => Navigator.pop(context),
-            //!    )
-            //!  ],
-            //!),
-            //),
             Tab(
               child: SingleChildScrollView(
                 child: Form(
@@ -151,89 +127,55 @@ class _ScreenMainState extends State<ScreenMain> {
                     width: double.maxFinite,
                     height: double.maxFinite,
                     child: ListView(
-                      padding: const EdgeInsets.all(25),
+                      padding: const EdgeInsets.all(20),
                       children: [
                         //
                         Row(
                           children: [
                             Container(
                               width: 140,
-
                               alignment: Alignment.center,
-                              //padding: const EdgeInsets.all(25),
-
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                                cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  labelText: "LEITO",
-                                  prefixIcon: const Icon(
-                                    Icons.bedroom_parent_sharp,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
+                              child: textformfield(
+                                  Text: "Leito : ",
+                                  TextInputType: TextInputType.number,
+                                  Icons: Icons.bedroom_parent_sharp),
                             ),
-                            SizedBox(
-                              width: 20,
-                            ),
+                            space(height: 0, width: 25),
                             Container(
                               width: 550,
 
                               alignment: Alignment.center,
                               //padding: const EdgeInsets.all(25),
 
-                              child: TextField(
-                                cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  labelText: "Paciente :",
-                                  prefixIcon: const Icon(
-                                    Icons.person,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
+                              child: textformfield(
+                                  Text: "Paciente :",
+                                  TextInputType: TextInputType.name,
+                                  Icons: Icons.person),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 25,
-                        ),
+                        space(width: 60),
 
                         Row(
                           children: [
-                            Container(
-                              width: 750,
+                            RadiusContainer(
+                              Width: 750,
                               height: 50,
-                              decoration: BoxDecoration(
-                                color: Colors.lightBlue,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                              ),
-                              child: Center(
-                                child: Text(
-                                    "Classificação de cuidados : [ ] intensivos [ ] semi- intesivos [ ] intermediarios [ ] minimos"),
-                              ),
-                            )
+                              Colors: Colors.lightBlue,
+                              Raio: 10,
+                              Widget: 
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                        "Classificação de cuidados : [ ] intensivos [ ] semi- intesivos [ ] intermediarios [ ] minimos"),
+                                  ],
+                                ),
+                              
+                            ),
                           ],
                         ),
-                        SizedBox(
-                          height: 25,
-                        ),
+                        space(),
                         Row(
                           children: [
                             Container(
@@ -242,71 +184,28 @@ class _ScreenMainState extends State<ScreenMain> {
                               alignment: Alignment.center,
                               //padding: const EdgeInsets.all(25),
 
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                                cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  labelText: "Médico :",
-                                  prefixIcon: const Icon(
-                                    Icons.medical_services_rounded,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
+                              child: textformfield(
+                                  Text: "Médico :",
+                                  TextInputType: TextInputType.name,
+                                  Icons: Icons.medical_services_rounded),
                             ),
-                            SizedBox(
-                              width: 30,
-                            ),
-                            
-
-                              Container(
-                              width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                color: Colors.lightBlue,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                              ),
-                              child: Center(
-                                child: Text(
-                                    "PRECAUÇÃO"),
-                              ),
-                            )
-                            
+                            space(width: 30),
+                            RadiusContainer(
+                                Width: 200,
+                                height: 60,
+                                Colors: Colors.lightBlue,
+                                Raio: 10,
+                                Widget: Text("PRECAUÇÃO")),
                           ],
                         ),
-                        SizedBox(
-                          height: 25,
-                        ),
-                         TextField(
-                                keyboardType: TextInputType.multiline,
-                                cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  labelText: "Quadro clinico :",
-                                  prefixIcon: const Icon(
-                                    Icons.health_and_safety,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
+                        space(),
 
-                         SizedBox(
-                          height: 25,
-                        ),
+                        textformfield(
+                            Text: "Quadro Clinico :",
+                            TextInputType: TextInputType.name,
+                            Icons: Icons.health_and_safety),
+
+                        space(),
                         Row(
                           children: [
                             Container(
@@ -315,27 +214,13 @@ class _ScreenMainState extends State<ScreenMain> {
                               alignment: Alignment.center,
                               //padding: const EdgeInsets.all(25),
 
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                                cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  labelText: "Dieta :",
-                                  prefixIcon: const Icon(
-                                    Icons.food_bank_rounded,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
+                              child: textformfield(
+                                  Text: "Dieta :",
+                                  TextInputType: TextInputType.name,
+                                  Icons: Icons.food_bank_rounded),
                             ),
-                            SizedBox(
-                              width: 80 ,
+                            space(
+                              width: 80,
                             ),
                             Container(
                               width: 300,
@@ -343,29 +228,14 @@ class _ScreenMainState extends State<ScreenMain> {
                               alignment: Alignment.center,
                               //padding: const EdgeInsets.all(25),
 
-                              child: TextField(
-                                cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  labelText: "Diurese :",
-                                  prefixIcon: const Icon(
-                                    Icons.water_drop,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
+                              child: textformfield(
+                                  Text: "Diurese :",
+                                  TextInputType: TextInputType.name,
+                                  Icons: Icons.water_drop),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 25,
-                        ),
+                        space(),
                         Row(
                           children: [
                             Container(
@@ -374,26 +244,12 @@ class _ScreenMainState extends State<ScreenMain> {
                               alignment: Alignment.center,
                               //padding: const EdgeInsets.all(25),
 
-                              child: TextField(
-                                keyboardType: TextInputType.number,
-                                cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  labelText: "Acesso venoso :",
-                                  prefixIcon: const Icon(
-                                    Icons.bloodtype,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
+                              child: textformfield(
+                                  Text: "Acesso venoso :",
+                                  TextInputType: TextInputType.name,
+                                  Icons: Icons.bloodtype),
                             ),
-                            SizedBox(
+                            space(
                               width: 20,
                             ),
                             Container(
@@ -402,77 +258,46 @@ class _ScreenMainState extends State<ScreenMain> {
                               alignment: Alignment.center,
                               //padding: const EdgeInsets.all(25),
 
-                              child: TextField(
-                                cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration: InputDecoration(
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: const OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  labelText: "Curativos :",
-                                  prefixIcon: const Icon(
-                                    Icons.home_repair_service_rounded,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
+                              child: textformfield(
+                                  Text: "Curativos :",
+                                  TextInputType: TextInputType.name,
+                                  Icons: Icons.home_repair_service_rounded),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 25,
-                        ),
+                        space(),
+                        textformfield(
+                            Text: "Quadro Clinico :",
+                            TextInputType: TextInputType.multiline,
+                            Icons: Icons.health_and_safety),
+                        space(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RadiusContainer(
+                                Width: 250,
+                                height: 50,
+                                Colors: Colors.blue,
+                                Raio: 45,
+                                Widget: Text(
+                                  "Limpar ",
+                                  style: TextStyle(color: Colors.white),
+                                )),
+                            space(width: 50),
+                            RadiusContainer(
+                                Width: 250,
+                                height: 50,
+                                Colors: Colors.blue,
+                                Raio: 45,
+                                Widget: Text(
+                                  "Salvar ",
+                                  style: TextStyle(color: Colors.white),
+                                )),
+                          ],
+                        )
                       ],
                     ),
                   ),
-
-                  // child: Column(
-                  //
-                  //   children: [
-                  //     Text(
-                  //       "Cadastro de paciente",
-                  //       style: TextStyle(
-                  //           fontSize: 50,
-                  //           fontWeight: FontWeight.w400,
-                  //
-                  //           ),
-                  //     ),
-                  //
-                  //     Text(texto.toString()),
-                  //     //Text("nome do medico : "),
-                  //     //Text("patologia: "),
-                  //     //Text("numero do leito : "),
-                  //     //Text("pendencias: "),
-                  //     //Text("exames: "),
-                  //
-                  //     TextField(
-                  //       controller: enfermo,
-                  //       cursorColor: Colors.black,
-                  //       style: TextStyle(color: Colors.black),
-                  //       decoration: InputDecoration(
-                  //           contentPadding: EdgeInsets.all(8),
-                  //           labelStyle: TextStyle(color: Colors.black),
-                  //           labelText: "paciente",
-                  //           border: const OutlineInputBorder(
-                  //               borderRadius:
-                  //                   BorderRadius.all(Radius.circular(10)))),
-                  //     ),
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.center,
-                  //       children: [
-                  //         ElevatedButton(
-                  //             child: Icon(Icons.delete),
-                  //             onPressed: () => apagar()),
-                  //         ElevatedButton(
-                  //             child: Icon(Icons.list),
-                  //             onPressed: () => atualizar()),
-                  //       ],
-                  //     )
-                  //   ],
-                  // ),
                 ),
               ),
             ),
@@ -523,18 +348,53 @@ class _ScreenMainState extends State<ScreenMain> {
                                   )),
                             )));
                   }),
-
-              //(children: [
-              //  ElevatedButton(
-              //      child: Icon(Icons.list),
-              //      onPressed: () => Navigator.push(
-              //            context,
-              //            new MaterialPageRoute(
-              //                builder: ((context) => ScreenConfirmation())),
-              //          ))
-              //]),
             )),
           ]),
+        ),
+      ),
+    );
+  }
+
+  SizedBox space({double width = 0, double height = 50}) {
+    return SizedBox(
+      width: width,
+      height: height,
+    );
+  }
+
+  Container RadiusContainer(
+      {required double? Width,
+      required double? height,
+      required var Colors,
+      required double Raio,
+      required var Widget}) {
+    return Container(
+      width: Width,
+      height: height,
+      decoration: BoxDecoration(
+        color: Colors,
+        borderRadius: BorderRadius.all(Radius.circular(Raio)),
+      ),
+      child: Center(child: Widget),
+    );
+  }
+
+  TextField textformfield(
+      {required String? Text, required var TextInputType, required var Icons}) {
+    return TextField(
+      keyboardType: TextInputType,
+      cursorColor: Colors.black,
+      style: TextStyle(color: Colors.black),
+      textInputAction: TextInputAction.next,
+      maxLines: 1,
+      decoration: InputDecoration(
+        labelStyle: TextStyle(color: Colors.black),
+        border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+        labelText: Text,
+        prefixIcon: Icon(
+          Icons,
+          color: Colors.black,
         ),
       ),
     );
