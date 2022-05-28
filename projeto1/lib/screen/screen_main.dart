@@ -180,14 +180,14 @@ class _ScreenMainState extends State<ScreenMain> {
                                   children: [
                                     Text(
                                         "Classificação de cuidados : [ ] intensivos [ ] semi- intesivos [ ] intermediarios [ ] minimos"),
-                                      DropdownButton(items: menu["classificao"], onChanged: (String? newvalue){
+                                     /* DropdownButton(items: menu["classificao"], onChanged: (String? newvalue){
                                         if (newvalue != null) {
                                           setState(() {
                                             
                                           });
                                           
                                         }
-                                      }),
+                                      }),*/
                                   
                                   ],
                                 ),
