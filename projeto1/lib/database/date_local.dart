@@ -10,7 +10,20 @@ class DataBase {
     return sql.openDatabase(path.join(dbpath, "banco.db"),
         onCreate: (db, version) {
       return db
-          .execute("CREATE TABLE banco ( id INTEGER PRIMARY KEY AUTOINCREMENT, paciente TEXT)");
+          .execute(
+            '''
+                CREATE TABLE banco (
+                   id INTEGER PRIMARY KEY AUTOINCREMENT,
+                   paciente TEXT,
+                   clinico TEXT,
+                   parecer TEXT,
+                   exames TEXT,
+                   obs TEXT,
+                   sae TEXT,
+                   
+                   )
+
+            ''');
     },
     version:1,
     );
