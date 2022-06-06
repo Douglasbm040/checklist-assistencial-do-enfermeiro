@@ -1,3 +1,4 @@
+// ignore_for_file: non_constant_identifier_names
 
 import 'package:sqflite/sqflite.dart' as sql;
 import 'package:path/path.dart' as path;
@@ -6,32 +7,29 @@ class DataBase {
   
   //! criar banco de dados
   static Future<sql.Database> database() async {
-    final dbpath = await sql.getDatabasesPath();
-    return sql.openDatabase(path.join(dbpath, "banco.db"),
+    final dbpath = await sql.getDatabasesPath(); //!criando o objs que guardo o caminho do banco
+    return sql.openDatabase(path.join(dbpath, "banco.db"), //! abrindo o banco de dados 
         onCreate: (db, version) {
       return db
-          .execute(
+          .execute( //! definido a comando sql 
+            '''CREATE TABLE banco (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              paciente TEXT
+              
+              )
+            
             '''
-                CREATE TABLE banco (
-                   id INTEGER PRIMARY KEY AUTOINCREMENT,
-                   paciente TEXT,
-                   clinico TEXT,
-                   parecer TEXT,
-                   exames TEXT,
-                   obs TEXT,
-                   sae TEXT,
-                   
-                   )
+                
 
-            ''');
+            );
     },
     version:1,
     );
   }
 
   //! insert dados
-  static Future<void> insert(String Nametable, Map<String, String> data) async {
-    final db = await DataBase.database();
+  static Future<void> insert(String Nametable, Map<String, String> data) async { 
+    final db = await DataBase.database(); //! obtendo banco de dados
     await db.insert(Nametable, data,
         conflictAlgorithm: sql.ConflictAlgorithm.replace);
   }

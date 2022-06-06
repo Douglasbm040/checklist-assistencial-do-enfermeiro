@@ -16,7 +16,7 @@ class ScreenConfirmation extends StatefulWidget {
 
 class _ScreenConfirmationState extends State<ScreenConfirmation> {
   final RoundedLoadingButtonController _btnController =
-      new RoundedLoadingButtonController();
+       RoundedLoadingButtonController();
 
   void _aminationtime() async {
     Timer(
@@ -25,7 +25,7 @@ class _ScreenConfirmationState extends State<ScreenConfirmation> {
         _btnController.success();
         sleep(Duration(seconds:2));
         Navigator.push(
-        context, new MaterialPageRoute(builder: (context) => ScreenMain()));
+        context,  MaterialPageRoute(builder: (context) => ScreenMain()));
       },
     );
     
@@ -49,7 +49,7 @@ class _ScreenConfirmationState extends State<ScreenConfirmation> {
               onPressed: _aminationtime,
             ),
             onPressed: () => Navigator.push(context,
-                new MaterialPageRoute(builder: (context) => ScreenMain())),
+                 MaterialPageRoute(builder: (context) => ScreenMain())),
           ),
           appBar: AppBar(
             title: Text("Confirmação !"),
@@ -89,32 +89,16 @@ class _ScreenConfirmationState extends State<ScreenConfirmation> {
                                     child: Icon(Icons.list),
                                     onPressed: () => Navigator.push(
                                           context,
-                                          new MaterialPageRoute(
+                                           MaterialPageRoute(
                                               builder: ((context) =>
                                                   ScreenMain())),
                                         ))),
                           )));
                 }),
 
-            //(children: [
-            //  ElevatedButton(
-            //      child: Icon(Icons.list),
-            //      onPressed: () => Navigator.push(
-            //            context,
-            //            new MaterialPageRoute(
-            //                builder: ((context) => ScreenConfirmation())),
-            //          ))
-            //]),
+          
           )),
-      //child: ElevatedButton(
-      //  child: RoundedLoadingButton(
-      //    child: Text("Salvar", style: TextStyle(color: Colors.white)),
-      //    controller: _btnController,
-      //    onPressed: _aminationtime,
-      //  ),
-      //  onPressed: () => Navigator.push(context,
-      //      new MaterialPageRoute(builder: (context) => ScreenMain())),
-      //),
+     
     );
   }
 }

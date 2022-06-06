@@ -1,14 +1,14 @@
-import 'package:projeto1/database/date_local.dart';
-import 'package:projeto1/models/models_paciente.dart';
+import 'package:projeto1/database/test_sql_1.dart';
 
-class REPOSITOR {
-  List <Paciente> pcts = [] ;
+
+class Repositor {
   String? nome ;
   Future loadpct () async{
     final datalist = await DataBase.getdata("banco");
     nome = datalist.toString();
+    return nome ;
     
-    //Paciente(paciente: datalist[1][1]);
+    
     
 
     

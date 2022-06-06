@@ -1,5 +1,4 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 import 'package:path/path.dart';
 
 class DB {
@@ -31,26 +30,28 @@ class DB {
     await db.execute(_listpaciente);
   }
 
-  String get _acesso => '''
+  String get _acesso => 
+  '''
     CREATE TABLE acesso(
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       usuario TEXT
       senha TEXT 
           )
-    ''';
-
-  String get _listpaciente => '''
-  CREATE TABLE listpaciente(
-    id INTERGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT,
-    clinico TEXT,
-    parecer TEXT,
-    exames TEXT,
-    obs TEXT,
-    sae TEXT,
-    
-  )
-
-
   ''';
+
+  String get _listpaciente => 
+
+'''
+    CREATE TABLE listpaciente(
+      id INTERGER PRIMARY KEY AUTOINCREMENT,
+      nome TEXT,
+      clinico TEXT,
+      parecer TEXT,
+      exames TEXT,
+      obs TEXT,
+      sae TEXT,   
+  )
+'''
+;
+  
 }

@@ -20,7 +20,7 @@ class ScreenSAE extends StatelessWidget {
             child: Icon(Icons.arrow_circle_right_sharp),
             onPressed: () => Navigator.push(
                 context,
-                new MaterialPageRoute(
+                 MaterialPageRoute(
                     builder: (context) => ScreenConfirmation())),
           ),
           body: AnimationLimiter(
@@ -58,7 +58,7 @@ class ScreenSAE extends StatelessWidget {
                                     child: Icon(Icons.list),
                                     onPressed: () => Navigator.push(
                                           context,
-                                          new MaterialPageRoute(
+                                           MaterialPageRoute(
                                               builder: ((context) =>
                                                   ScreenConfirmation())),
                                         ))),
