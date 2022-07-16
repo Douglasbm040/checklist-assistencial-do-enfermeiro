@@ -2,10 +2,12 @@
 //import 'dart:html';
 //import 'dart:js';
 
+//import 'dart:html';
+
 import 'package:projeto1/animation/animation.dart';
 import 'package:projeto1/repositories/repositorio.dart';
 import 'package:flutter/material.dart';
-import '../components/compontes_main/form.dart';
+import '../components/compontes_main/formulario.dart';
 
 ///import 'package:qr_code_scanner/qr_code_scanner.dart';
 

@@ -2,11 +2,11 @@
 //import 'dart:html';
 //import 'dart:js';
 
-import 'package:projeto1/animation/animation.dart';
+//import 'package:projeto1/animation/animation.dart';
 
 ///import 'package:projeto1/repositories/repositorio.dart';
 import 'package:flutter/material.dart';
-import '../components/compontes_main/form.dart';
+import '../components/compontes_main/formulario.dart';
 
 ///import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -60,18 +60,19 @@ class _Layout_mainState extends State<Layout_main> {
               //double width = constraints.maxWidth;
               return TabBarView(children: [
                 Tab(
-                    child: Animationwidget(
-                  wquery: wquery,
-                )),
+                  child: const Text("animation"),
+                  //     child: Animationwidget(
+                  //   wquery: wquery,
+                  // )
+                ),
                 Tab(
                   child: Formulario(
                       width: constraints.maxWidth,
                       Height: constraints.maxHeight),
                 ),
                 Tab(
-                    child: Animationwidget(
-                  wquery: wquery,
-                )),
+                  child: const Text("animation"),
+                ),
               ]);
             },
           ),

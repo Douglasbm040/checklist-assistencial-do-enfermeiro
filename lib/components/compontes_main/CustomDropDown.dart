@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CustomDropDown extends StatefulWidget {
-  const CustomDropDown({Key? key}) : super(key: key);
+  List<String> list;
+  String item;
+  CustomDropDown({
+    Key? key,
+    required this.item,
+    required this.list,
+  }) : super(key: key);
 
   @override
-  State<CustomDropDown> createState() => _MyStatefulWidgetState();
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
 
 class _MyStatefulWidgetState extends State<CustomDropDown> {
-  String dropdownValue = 'Padrão';
+  late String dropdownValue;
+  late List<String> lista = widget.list;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dropdownValue = widget.item;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +43,7 @@ class _MyStatefulWidgetState extends State<CustomDropDown> {
           dropdownValue = newValue!;
         });
       },
-      items: <String>['Padrão', 'Contato', 'Goticulas', 'Aerossois', "Reversa"]
-          .map<DropdownMenuItem<String>>((String value) {
+      items: widget.list.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),

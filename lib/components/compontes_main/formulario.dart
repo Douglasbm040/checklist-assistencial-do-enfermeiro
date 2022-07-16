@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:projeto1/components/compontes_main/CustomDropDown.dart';
+import 'package:projeto1/components/compontes_main/modalbottomshett.dart';
+import 'package:projeto1/repositories/RepositoriesFugulim.dart';
 import '../../controller/Texteditingcontroller.dart';
 import '../Space.dart';
 import '../EditText.dart';
@@ -22,6 +24,7 @@ class Formulario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: constant_identifier_names
+    modalBottomshett screen = modalBottomshett();
     const double DEAFULTSPACE = .03;
     return Scaffold(
       key: this._scafoldkey,
@@ -73,7 +76,7 @@ class Formulario extends StatelessWidget {
                           ElevatedButton(
                               onPressed: () => showModalBottomSheet(
                                   context: context,
-                                  builder: (ctx) => _buildershwtt(ctx)),
+                                  builder: (ctx) => screen.modal(ctx)),
                               child: const Text("classificação de pacientes")),
                           Space(width: 10),
                           Space(width: 10),
@@ -105,7 +108,16 @@ class Formulario extends StatelessWidget {
                       height: 60,
                       Colors: Colors.lightBlue,
                       Raio: 10,
-                      Widget: CustomDropDown()),
+                      Widget: CustomDropDown(
+                        item: "Padrão",
+                        list: const <String>[
+                          "Padrão",
+                          "Contato",
+                          "Goticulas",
+                          "Aerossol",
+                          "Reversa"
+                        ],
+                      )),
                 ],
               ),
               Space(height: Height * DEAFULTSPACE),
@@ -224,78 +236,6 @@ class Formulario extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Container _buildershwtt(BuildContext context) {
-    return Container(
-      height: 300,
-      padding: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue, width: 4),
-        // borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: SizedBox(
-        width: double.maxFinite,
-        height: double.maxFinite,
-        child: ListView(
-          children: [
-            Center(
-                child: Column(
-              children: [
-                const Text("classificação do paciente :"),
-              ],
-            )),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Estado Mental",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Oxigenação",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Sinais vitais",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Motilidade",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Deambulação",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Alimentação",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Cuidados corporais",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Eliminação",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            EditText(
-                controller: TextFormController.acesso,
-                label: "Terapeutica",
-                TextInputType: TextInputType.text),
-            Space(height: 10),
-            ElevatedButton(onPressed: () {}, child: const Text("Salvar"))
-          ],
         ),
       ),
     );
