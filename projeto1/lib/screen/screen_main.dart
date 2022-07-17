@@ -2,37 +2,25 @@
 //import 'dart:html';
 //import 'dart:js';
 
-//import 'package:projeto1/animation/animation.dart';
+//import 'dart:html';
 
-///import 'package:projeto1/repositories/repositorio.dart';
+import 'package:projeto1/animation/animation.dart';
+import 'package:projeto1/repositories/repositorio.dart';
 import 'package:flutter/material.dart';
 import '../components/compontes_main/formulario.dart';
 
 ///import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-class Layout_main extends StatefulWidget {
-  const Layout_main({Key? key}) : super(key: key);
+main() => runApp(ScreenMain());
+
+class ScreenMain extends StatefulWidget {
+  const ScreenMain({Key? key}) : super(key: key);
 
   @override
-  State<Layout_main> createState() => _Layout_mainState();
+  State<ScreenMain> createState() => _ScreenMainState();
 }
 
-class _Layout_mainState extends State<Layout_main> {
-//![ ] criar constantes
-//![ ]
-//![ ]
-//![ ]
-//![ ]
-//![ ]
-//![ ]
-//![ ]
-//![ ]
-
-  TextEditingController enfermo = TextEditingController();
-  //Repositor repor = Repositor();
-  //var _dropdownvalue ;
-  //String? texto;
-
+class _ScreenMainState extends State<ScreenMain> {
   @override
   Widget build(BuildContext context) {
     double wquery = MediaQuery.of(context).size.width;
@@ -60,19 +48,18 @@ class _Layout_mainState extends State<Layout_main> {
               //double width = constraints.maxWidth;
               return TabBarView(children: [
                 Tab(
-                  child: const Text("animation"),
-                  //     child: Animationwidget(
-                  //   wquery: wquery,
-                  // )
-                ),
+                    child: Animationwidget(
+                  wquery: wquery,
+                )),
                 Tab(
                   child: Formulario(
                       width: constraints.maxWidth,
                       Height: constraints.maxHeight),
                 ),
                 Tab(
-                  child: const Text("animation"),
-                ),
+                    child: Animationwidget(
+                  wquery: wquery,
+                )),
               ]);
             },
           ),

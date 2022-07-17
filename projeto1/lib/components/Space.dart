@@ -3,10 +3,8 @@ import 'package:projeto1/layout/Layout_login.dart';
 
 
 class Space extends StatelessWidget  {
-  
   final double? width ;
   final double? height;
-
   const Space({
               Key? key ,
               this.width ,

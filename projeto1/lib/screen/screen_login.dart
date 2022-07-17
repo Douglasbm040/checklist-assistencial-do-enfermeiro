@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto1/layout/Layout_login.dart';
 
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
@@ -25,9 +24,12 @@ class _ScreenLoginState extends State<ScreenLogin> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: LayoutLogin(),
-      ),
+      home: Scaffold(body: LayoutBuilder(builder: ((context, constraints) {
+        return LayoutLogin(
+          width: constraints.maxWidth,
+          height: constraints.maxHeight,
+        );
+      }))),
     );
-  } 
+  }
 }
