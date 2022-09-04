@@ -1,17 +1,8 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
-//import 'dart:html';
-//import 'dart:js';
-
-//import 'dart:html';
-
-import 'package:projeto1/animation/animation.dart';
+import 'package:projeto1/components/listpacient.dart';
 import 'package:projeto1/repositories/repositorio.dart';
 import 'package:flutter/material.dart';
-import '../components/compontes_main/formulario.dart';
 
-///import 'package:qr_code_scanner/qr_code_scanner.dart';
-
-main() => runApp(ScreenMain());
+import '../components/MainComponets/formulario.dart';
 
 class ScreenMain extends StatefulWidget {
   const ScreenMain({Key? key}) : super(key: key);
@@ -48,7 +39,7 @@ class _ScreenMainState extends State<ScreenMain> {
               //double width = constraints.maxWidth;
               return TabBarView(children: [
                 Tab(
-                    child: Animationwidget(
+                    child: listpacient(
                   wquery: wquery,
                 )),
                 Tab(
@@ -57,7 +48,7 @@ class _ScreenMainState extends State<ScreenMain> {
                       Height: constraints.maxHeight),
                 ),
                 Tab(
-                    child: Animationwidget(
+                    child: listpacient(
                   wquery: wquery,
                 )),
               ]);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class borderradius {
+class CustomConteiner {
   Container RadiusContainer(
       {required double? Width,
       required double? height,

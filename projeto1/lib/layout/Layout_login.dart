@@ -3,11 +3,11 @@
 // ignore_for_file: non_constant_identifier_names, file_names, prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:projeto1/components/components_login/EditTextPassword.dart';
+import 'package:projeto1/components/LoginComponets/TextFieldLogin.dart';
+import '../components/Custom/CustomTextField.dart';
 import '../components/Space.dart';
-import '../components/EditText.dart';
-import '../components/Textfixed.dart';
-import '../components/components_login/logo.dart';
+import '../components/Custom/CustomText.dart';
+import '../components/LoginComponets/logo.dart';
 import '../controller/Texteditingcontroller.dart';
 import '../screen/screen_main.dart';
 
@@ -35,7 +35,7 @@ class _LayoutLoginState extends State<LayoutLogin> {
   final double WIDTHBUTTON = .7;
   final double MAXSPACE = 1;
 
-  bool _showPassword = false;
+  bool _showPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class _LayoutLoginState extends State<LayoutLogin> {
                   Space(
                     height: widget.width * DEFAULTWIDTH,
                   ),
-                  Textfixed("LOGIN"),
+                  CustomText("LOGIN"),
                 ],
               )),
               Space(height: widget.height * DEFAULTHEIGHT),
@@ -71,10 +71,10 @@ class _LayoutLoginState extends State<LayoutLogin> {
                 children: [
                   SizedBox(
                     width: widget.width * WIDHTTEXTFIELD,
-                    child: EditText(
+                    child: CustomTextField(
                       controller: TextFormController.usuario,
                       cor: Colors.white,
-                      label: "usuario",
+                      label: "Usuario",
                       Icons: Icons.person,
                       TextInputType: TextInputType.name,
                     ),
@@ -82,7 +82,7 @@ class _LayoutLoginState extends State<LayoutLogin> {
                   Space(height: widget.height * DEFAULTHEIGHT),
                   SizedBox(
                       width: widget.width * WIDHTTEXTFIELD,
-                      child: EditTextPassword(isshowpassword: true))
+                      child: EditTextPassword(isshowpassword: false))
                 ],
               ),
               Space(height: widget.height * DEFAULTHEIGHT),

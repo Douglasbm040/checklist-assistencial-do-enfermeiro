@@ -1,13 +1,14 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:projeto1/components/borderradius.dart';
-import 'package:projeto1/components/compontes_main/CustomDropDown.dart';
-import 'package:projeto1/components/compontes_main/modalbottomshett.dart';
+import 'package:projeto1/components/Custom/CustomTextField.dart';
+import 'package:projeto1/components/Custom/CustomDropDown.dart';
+import 'package:projeto1/components/MainComponets/modalbottomshett.dart';
+import 'package:projeto1/models/PacienteModel.dart';
 import 'package:projeto1/repositories/RepositoriesFugulim.dart';
 import '../../controller/Texteditingcontroller.dart';
+import '../Custom/CustomConteiner.dart';
 import '../Space.dart';
-import '../EditText.dart';
 
 class Formulario extends StatelessWidget {
   final double width;
@@ -24,9 +25,10 @@ class Formulario extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scafoldkey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    var paciente;
     // ignore: constant_identifier_names
     modalBottomshett screen = modalBottomshett();
-    borderradius border = borderradius();
+    CustomConteiner border = CustomConteiner();
     const double DEAFULTSPACE = .03;
     return Scaffold(
       key: this._scafoldkey,
@@ -45,7 +47,7 @@ class Formulario extends StatelessWidget {
                   Container(
                     width: width * .2,
                     alignment: Alignment.center,
-                    child: EditText(
+                    child: CustomTextField(
                         controller: TextFormController.leito,
                         label: "Leito : ",
                         TextInputType: TextInputType.number,
@@ -55,7 +57,7 @@ class Formulario extends StatelessWidget {
                   Container(
                     width: width * .5,
                     alignment: Alignment.center,
-                    child: EditText(
+                    child: CustomTextField(
                         controller: TextFormController.paciente,
                         label: "Paciente :",
                         TextInputType: TextInputType.name,
@@ -98,7 +100,7 @@ class Formulario extends StatelessWidget {
                     alignment: Alignment.center,
                     //padding: const EdgeInsets.all(25),
 
-                    child: EditText(
+                    child: CustomTextField(
                         controller: TextFormController.medico,
                         label: "Médico :",
                         TextInputType: TextInputType.name,
@@ -127,7 +129,7 @@ class Formulario extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 width: width * .9,
-                child: EditText(
+                child: CustomTextField(
                     controller: TextFormController.qclinico,
                     label: "Quadro Clinico :",
                     TextInputType: TextInputType.name,
@@ -143,7 +145,7 @@ class Formulario extends StatelessWidget {
                     alignment: Alignment.center,
                     //padding: const EdgeInsets.all(25),
 
-                    child: EditText(
+                    child: CustomTextField(
                         controller: TextFormController.dieta,
                         label: "Dieta :",
                         TextInputType: TextInputType.name,
@@ -158,7 +160,7 @@ class Formulario extends StatelessWidget {
                     alignment: Alignment.center,
                     //padding: const EdgeInsets.all(25),
 
-                    child: EditText(
+                    child: CustomTextField(
                         controller: TextFormController.diurese,
                         label: "Diurese :",
                         TextInputType: TextInputType.name,
@@ -175,7 +177,7 @@ class Formulario extends StatelessWidget {
                     alignment: Alignment.center,
                     //padding: const EdgeInsets.all(25),
 
-                    child: EditText(
+                    child: CustomTextField(
                         controller: TextFormController.acesso,
                         label: "Acesso venoso :",
                         TextInputType: TextInputType.name,
@@ -188,7 +190,7 @@ class Formulario extends StatelessWidget {
                     alignment: Alignment.center,
                     //padding: const EdgeInsets.all(25),
 
-                    child: EditText(
+                    child: CustomTextField(
                         controller: TextFormController.curativo,
                         label: "Curativos :",
                         lines: 2,
@@ -199,7 +201,7 @@ class Formulario extends StatelessWidget {
               ),
               Space(height: Height * DEAFULTSPACE),
               Container(
-                child: EditText(
+                child: CustomTextField(
                   label: "Obs .:",
                   controller: TextFormController.obs,
                   TextInputType: TextInputType.multiline,
@@ -223,7 +225,12 @@ class Formulario extends StatelessWidget {
                       )),
                   Space(width: width * DEAFULTSPACE),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      pacientes.add(PacienteModel(
+                          TextFormController.paciente.text,
+                          TextFormController.leito.text,
+                          TextFormController.medico.text));
+                    },
                     child: border.RadiusContainer(
                         Width: width * .4,
                         height: Height * .065,

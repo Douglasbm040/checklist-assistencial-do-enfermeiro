@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../../controller/Texteditingcontroller.dart';
 
 class EditTextPassword extends StatefulWidget {
-  bool isshowpassword = true;
+  bool isshowpassword = false;
   EditTextPassword({Key? key, required isshowpassword}) : super(key: key);
 
   @override
@@ -33,7 +32,7 @@ class _EditTextPasswordState extends State<EditTextPassword> {
               setState(() => widget.isshowpassword = !widget.isshowpassword);
             },
             icon: Icon(
-              widget.isshowpassword ? Icons.visibility : Icons.visibility_off,
+              widget.isshowpassword ? Icons.visibility_off : Icons.visibility,
               color: Colors.white,
             )),
       ),

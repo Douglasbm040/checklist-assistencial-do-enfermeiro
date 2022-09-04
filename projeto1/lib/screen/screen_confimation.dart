@@ -16,20 +16,18 @@ class ScreenConfirmation extends StatefulWidget {
 
 class _ScreenConfirmationState extends State<ScreenConfirmation> {
   final RoundedLoadingButtonController _btnController =
-       RoundedLoadingButtonController();
+      RoundedLoadingButtonController();
 
   void _aminationtime() async {
     Timer(
-      Duration(seconds:3),
+      Duration(seconds: 3),
       () {
         _btnController.success();
-        sleep(Duration(seconds:2));
+        sleep(Duration(seconds: 2));
         Navigator.push(
-        context,  MaterialPageRoute(builder: (context) => ScreenMain()));
+            context, MaterialPageRoute(builder: (context) => ScreenMain()));
       },
     );
-    
-    
   }
 
   @override
@@ -40,16 +38,19 @@ class _ScreenConfirmationState extends State<ScreenConfirmation> {
       home: Scaffold(
           floatingActionButton: FloatingActionButton(
             child: RoundedLoadingButton(
-              valueColor: Colors.blue ,
-              color:Colors.white,
-              height:320 ,
+              valueColor: Colors.blue,
+              color: Colors.white,
+              height: 320,
               successColor: Color.fromARGB(255, 98, 255, 103),
-              child: Icon(Icons.save_rounded, color: Colors.blue,),
+              child: Icon(
+                Icons.save_rounded,
+                color: Colors.blue,
+              ),
               controller: _btnController,
               onPressed: _aminationtime,
             ),
-            onPressed: () => Navigator.push(context,
-                 MaterialPageRoute(builder: (context) => ScreenMain())),
+            onPressed: () => Navigator.push(
+                context, MaterialPageRoute(builder: (context) => ScreenMain())),
           ),
           appBar: AppBar(
             title: Text("Confirmação !"),
@@ -89,16 +90,13 @@ class _ScreenConfirmationState extends State<ScreenConfirmation> {
                                     child: Icon(Icons.list),
                                     onPressed: () => Navigator.push(
                                           context,
-                                           MaterialPageRoute(
+                                          MaterialPageRoute(
                                               builder: ((context) =>
                                                   ScreenMain())),
                                         ))),
                           )));
                 }),
-
-          
           )),
-     
     );
   }
 }
