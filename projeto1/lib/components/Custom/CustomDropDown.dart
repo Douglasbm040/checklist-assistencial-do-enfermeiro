@@ -3,22 +3,24 @@ import 'package:flutter/material.dart';
 class CustomDropDown extends StatefulWidget {
   List<String> list;
   String item;
+  //var itemselecionado;
   CustomDropDown({
     Key? key,
     required this.item,
     required this.list,
+    //required this.itemselecionado,
   }) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _CustomDropDownState createState() => _CustomDropDownState();
 }
 
-class _MyStatefulWidgetState extends State<CustomDropDown> {
+class _CustomDropDownState extends State<CustomDropDown> {
   late String dropdownValue;
   late List<String> lista = widget.list;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     dropdownValue = widget.item;
   }
