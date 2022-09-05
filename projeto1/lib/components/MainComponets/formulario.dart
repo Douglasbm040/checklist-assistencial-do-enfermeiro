@@ -107,21 +107,22 @@ class Formulario extends StatelessWidget {
                         Icons: Icons.medical_services_rounded),
                   ),
                   Space(width: width * DEAFULTSPACE),
-                  border.RadiusContainer(
-                      Width: width * .25,
-                      height: 60,
-                      Colors: Colors.lightBlue,
-                      Raio: 10,
-                      Widget: CustomDropDown(
-                        item: "Padrão",
-                        list: const <String>[
-                          "Padrão",
-                          "Contato",
-                          "Goticulas",
-                          "Aerossol",
-                          "Reversa"
-                        ],
-                      )),
+                  // border.RadiusContainer(
+                  //     Width: width * .25,
+                  //     height: 60,
+                  //     Colors: Colors.lightBlue,
+                  //     Raio: 10,
+                  //     Widget: CustomDropDown(
+                  //       item: "Padrão",
+                  //       list: const <String>[
+                  //         "Padrão",
+                  //         "Contato",
+                  //         "Goticulas",
+                  //         "Aerossol",
+                  //         "Reversa"
+                  //       ],
+                  //     )
+                  //     ),
                 ],
               ),
               Space(height: Height * DEAFULTSPACE),

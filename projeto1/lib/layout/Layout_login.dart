@@ -45,59 +45,66 @@ class _LayoutLoginState extends State<LayoutLogin> {
         height: widget.height * MAXSPACE,
         color: Colors.blue,
         child: Center(
-            child: Container(
-          decoration: BoxDecoration(
-              color: Colors.black38,
-              borderRadius: BorderRadius.all(Radius.circular(35))),
-          width: widget.width * WIDTHBOXDECORATION,
-          height: widget.height * HEIGHTBOXDECORATION,
-          child: SingleChildScrollView(
-            child: Column(children: [
-              Center(
-                  child: Column(
-                children: [
-                  Space(
-                    height: widget.width * DEFAULTHEIGHT,
-                  ),
-                  Logo(icons: Icons.person_pin_rounded),
-                  Space(
-                    height: widget.width * DEFAULTWIDTH,
-                  ),
-                  CustomText("LOGIN"),
-                ],
-              )),
-              Space(height: widget.height * DEFAULTHEIGHT),
-              Column(
-                children: [
-                  SizedBox(
-                    width: widget.width * WIDHTTEXTFIELD,
-                    child: CustomTextField(
-                      controller: TextFormController.usuario,
-                      cor: Colors.white,
-                      label: "Usuario",
-                      Icons: Icons.person,
-                      TextInputType: TextInputType.name,
+            child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 350,
+          ),
+          child: Container(
+            height: widget.height * HEIGHTBOXDECORATION,
+            decoration: BoxDecoration(
+                color: Colors.black38,
+                borderRadius: BorderRadius.all(Radius.circular(35))),
+            child: SingleChildScrollView(
+              child: Column(children: [
+                Center(
+                    child: Column(
+                  children: [
+                    Space(
+                      height: widget.width * DEFAULTHEIGHT,
                     ),
-                  ),
-                  Space(height: widget.height * DEFAULTHEIGHT),
-                  SizedBox(
-                      width: widget.width * WIDHTTEXTFIELD,
-                      child: EditTextPassword(isshowpassword: false))
-                ],
-              ),
-              Space(height: widget.height * DEFAULTHEIGHT),
-              Container(
-                  width: widget.width * WIDTHBUTTON,
-                  height: 50,
-                  child: ElevatedButton(
-                      child: Text("ENTRAR"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ScreenMain()),
-                        );
-                      })),
-            ]),
+                    Logo(icons: Icons.person_pin_rounded),
+                    Space(
+                      height: widget.width * DEFAULTWIDTH,
+                    ),
+                    CustomText("LOGIN"),
+                  ],
+                )),
+                Space(height: widget.height * DEFAULTHEIGHT),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: SizedBox(
+                        width: widget.width * WIDHTTEXTFIELD,
+                        child: CustomTextField(
+                          controller: TextFormController.usuario,
+                          cor: Colors.white,
+                          label: "Usuario",
+                          Icons: Icons.person,
+                          TextInputType: TextInputType.name,
+                        ),
+                      ),
+                    ),
+                    Space(height: widget.height * DEFAULTHEIGHT),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: SizedBox(
+                          width: widget.width * WIDHTTEXTFIELD,
+                          child: EditTextPassword(isshowpassword: false)),
+                    )
+                  ],
+                ),
+                Space(height: widget.height * DEFAULTHEIGHT),
+                ElevatedButton(
+                    child: Text("ENTRAR"),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ScreenMain()),
+                      );
+                    }),
+              ]),
+            ),
           ),
         )),
       );

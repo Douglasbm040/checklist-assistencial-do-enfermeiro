@@ -1,14 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class CustomDropDown extends StatefulWidget {
   List<String> list;
-  String item;
+  var onChanged;
+  Widget hint;
+
   //var itemselecionado;
   CustomDropDown({
     Key? key,
-    required this.item,
-    required this.list,
     //required this.itemselecionado,
+    required this.list,
+    required this.onChanged,
+    required this.hint,
   }) : super(key: key);
 
   @override
@@ -22,12 +26,13 @@ class _CustomDropDownState extends State<CustomDropDown> {
   @override
   void initState() {
     super.initState();
-    dropdownValue = widget.item;
+    dropdownValue = widget.list[0];
   }
 
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      hint: widget.hint,
       value: dropdownValue,
       icon: const Icon(
         Icons.arrow_downward,
@@ -40,11 +45,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
         height: 2,
         color: Colors.black,
       ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
+      onChanged: widget.onChanged,
       items: widget.list.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,

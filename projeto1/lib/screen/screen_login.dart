@@ -22,14 +22,15 @@ class ScreenLogin extends StatefulWidget {
 class _ScreenLoginState extends State<ScreenLogin> {
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size;
+
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(body: LayoutBuilder(builder: ((context, constraints) {
-        return LayoutLogin(
-          width: constraints.maxWidth,
-          height: constraints.maxHeight,
-        );
-      }))),
-    );
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: LayoutLogin(
+            width: media.width,
+            height: media.height,
+          ),
+        ));
   }
 }
