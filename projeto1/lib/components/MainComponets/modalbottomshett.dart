@@ -6,7 +6,17 @@ import 'package:projeto1/repositories/RepositoriesFugulim.dart';
 class modalBottomshett {
   Container modal(BuildContext context) {
     ReporsitoriesFugulim? escala = ReporsitoriesFugulim();
-    List<String?> respostas = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    List<String?> respostas = [
+      "resposta 1",
+      "resposta 2",
+      "resposta 3",
+      "resposta 4",
+      "resposta 5",
+      "resposta 6",
+      "resposta 7",
+      "resposta 8",
+      "resposta 9",
+    ];
     return Container(
       height: 300,
       padding: const EdgeInsets.all(8.0),
@@ -37,7 +47,7 @@ class modalBottomshett {
             onPressed: () {
               print(respostas);
             },
-            child: Text("somar"),
+            child: const Text("Enviar"),
           )
         ],
       ),
